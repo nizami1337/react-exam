@@ -1,0 +1,43 @@
+.addCar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &__field {
+        display: flex;
+        gap: 50px;
+
+        span {
+            min-width: 180px;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        input, textarea, select {
+            padding: 5px;
+            font-size: 25px;
+        }
+    }
+
+    &__buttons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            width: fit-content;
+            padding: 10px 30px;
+            font-size: 24px;
+            border: none;
+            color: #fff;
+            border-radius: 6px;
+            background-color: rgb(198, 4, 4);
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: red;
+            transition: .3s;
+        }
+    }
+}

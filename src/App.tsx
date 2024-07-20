@@ -5,12 +5,15 @@ import Card from './components/Card/Card'
 import { useAppSelector } from './redux/hooks'
 import { Car, getCars } from './redux/slices/carSlice'
 import { Link } from 'react-router-dom'
+import { PlusCircle, XCircle } from 'react-feather'
 
 function App() {
   useGetCarsQuery(undefined)
+  
   const carsraw = useAppSelector(getCars)
+  console.log(carsraw)
   // const dispatch = useAppDispatch()
-
+  
   const makes = [...new Set(carsraw.map(car => car.make))]
   const years = [...new Set(carsraw.map(car => car.year))]
   const colors = [...new Set(carsraw.map(car => car.color))]
@@ -20,7 +23,7 @@ function App() {
   const [year, setYear] = useState(0);
   const [color, setColor] = useState('');
   const [engine, setEngine] = useState('');
-
+  
   function clearFilters() {
     setMake('')
     setYear(0)
@@ -28,6 +31,8 @@ function App() {
     setEngine('')
   }
 
+  // dispatch(deleteCar(2))
+  
   let cars : Car[] = carsraw
   
   if (make != '') { cars = cars.filter(car => car.make == make) }
@@ -78,8 +83,8 @@ function App() {
             ))}
           </select>
         </span>
-        <button onClick={clearFilters}>Clear Filters</button>
-        <Link to={'/addcar'}><button>Add Car</button></Link>
+        <button onClick={clearFilters}><XCircle size={16}/> Clear Filters</button>
+        <Link to={'/addcar'}><button><PlusCircle size={16}/> Add Car</button></Link>
       </div>
       <div className="cars">
         {cars.map(car => (

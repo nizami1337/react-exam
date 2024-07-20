@@ -47,14 +47,28 @@ const initialState: CarsState = {
 export const carSlice = createSlice({
   name: 'counter',
   initialState,
-  reducers: {},
+  reducers: {
+    addCar(state, action) {
+      state.cars.push(action.payload)
+    },
+    deleteCar(state, action) {
+      state.cars = state.cars.filter(car => car.id != action.payload)
+    },
+    editCar(state, action) {
+      state.cars.forEach(x => {
+        if (x.id == action.payload.id) {
+          x = action.payload
+        }
+      })
+    }
+  },
   extraReducers: (builder) => {
     builder.addMatcher(carApi.endpoints.getCars.matchFulfilled, (state, payload) => {state.cars = payload.payload})
     builder.addMatcher(carApi.endpoints.getCar.matchFulfilled, (state, payload) => {state.car = payload.payload})
   },
 })
 
-export const { /* increment, decrement, incrementByAmount */ } = carSlice.actions
+export const { deleteCar, addCar } = carSlice.actions
 export const getCars = (state: RootState) => state.cars.cars
 export const getCar = (state: RootState) => state.cars.car
 export default carSlice.reducer
