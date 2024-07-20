@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #282828;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  color: #fff;
+}
+
+.bottom {
+  width: 90%;
+  display: flex;
+  gap: 30px;
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button, a button {
+      width: fit-content;
+      padding: 10px;
+      font-size: 20px;
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+      background-color: rgb(198, 4, 4);
+      cursor: pointer;
+    }
+
+    button:hover, a button:hover {
+      background-color: red;
+      transition: .3s;
+    }
+
+    .filter {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h2 {
+        font-size: 32px;
+        color: #fff;
+      }
+      
+      select {
+        padding: 2px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .cars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+  }
+}

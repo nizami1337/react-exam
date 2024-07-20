@@ -1,0 +1,27 @@
+.carmenu {
+    display: flex;
+    gap: 40px;
+    color: #fff;
+    width: 60%;
+
+    &__left {
+        img {
+            width: 250;
+            height: 250;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h2 {
+            font-size: 36px;
+        }
+
+        span {
+            font-size: 20px;
+        }
+    }
+}
