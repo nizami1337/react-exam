@@ -9,10 +9,7 @@ import { PlusCircle, XCircle } from 'react-feather'
 
 function App() {
   useGetCarsQuery(undefined)
-  
   const carsraw = useAppSelector(getCars)
-  console.log(carsraw)
-  // const dispatch = useAppDispatch()
   
   const makes = [...new Set(carsraw.map(car => car.make))]
   const years = [...new Set(carsraw.map(car => car.year))]
@@ -30,8 +27,6 @@ function App() {
     setColor('')
     setEngine('')
   }
-
-  // dispatch(deleteCar(2))
   
   let cars : Car[] = carsraw
   

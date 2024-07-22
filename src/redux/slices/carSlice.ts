@@ -55,11 +55,11 @@ export const carSlice = createSlice({
       state.cars = state.cars.filter(car => car.id != action.payload)
     },
     editCar(state, action) {
-      state.cars.forEach(x => {
-        if (x.id == action.payload.id) {
-          x = action.payload
+      for (let i=0;i<state.cars.length;i++) {
+        if (state.cars[i].id == action.payload.id) {
+          state.cars[i] = action.payload
         }
-      })
+      }
     }
   },
   extraReducers: (builder) => {
@@ -68,7 +68,7 @@ export const carSlice = createSlice({
   },
 })
 
-export const { deleteCar, addCar } = carSlice.actions
+export const { deleteCar, addCar, editCar } = carSlice.actions
 export const getCars = (state: RootState) => state.cars.cars
 export const getCar = (state: RootState) => state.cars.car
 export default carSlice.reducer

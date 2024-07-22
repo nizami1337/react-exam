@@ -50,8 +50,8 @@ const AddCar = () => {
         dispatch(addCar(car))
         alert('Car added successfully!')
     }
-    const carsraw = useAppSelector(getCars)
-    console.log(carsraw)
+    // const carsraw = useAppSelector(getCars)
+    // console.log(carsraw)
 
 
     return (
