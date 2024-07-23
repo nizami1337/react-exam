@@ -15,14 +15,8 @@ interface IReactPortal {
 
 const ReactPortal = ({ children, wrapperId = "react-portal-wrapper" }: IReactPortal) => {
   const [wrapperElement, setWrapperElement] = useState<HTMLElement | null>(null);
-
-  useLayoutEffect(() => {
-    let element = document.getElementById(wrapperId);
-    if (!element) {
-      element = createWrapperAndAppendToBody(wrapperId);
-    }
-    setWrapperElement(element);
-  }, [wrapperId]);
+  let element = createWrapperAndAppendToBody(wrapperId);
+  setWrapperElement(element);
 
   if (wrapperElement === null) return null;
 
